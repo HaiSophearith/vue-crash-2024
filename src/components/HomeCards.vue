@@ -12,12 +12,12 @@ import Card from '@/components/Card.vue';
           <p class="mt-2 mb-4">
             Browse our Vue jobs and start your career today
           </p>
-          <RouterLink
+          <!-- <RouterLink
             to="/jobs"
             class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
           >
             Browse Jobs
-          </RouterLink>
+          </RouterLink> -->
         </Card>
         <Card bg="bg-green-100">
           <h2 class="text-2xl font-bold">For Employers</h2>
