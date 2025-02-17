@@ -14,14 +14,14 @@ defineProps({
 });
 
 const state = reactive({
-  jobs: [],
+  items: [],
   isLoading: true,
 });
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/jobs');
-    state.jobs = response.data;
+    const response = await axios.get('/api/items');
+    state.items = response.data;
   } catch (error) {
     console.error('Error fetching jobs', error);
   } finally {
@@ -29,7 +29,6 @@ onMounted(async () => {
   }
 });
 </script>
-
 <template>
   <section class="bg-blue-50 px-4 py-10">
     <div class="container-xl lg:container m-auto">
@@ -41,12 +40,12 @@ onMounted(async () => {
         <PulseLoader />
       </div>
 
-      <!-- Shoe job listing when done loading -->
+      <!-- Shoe item listing when done loading -->
       <div v-else class="grid grid-cols-1 md:grid-cols-5 gap-6">
         <JobListing
-          v-for="job in state.jobs.slice(0, limit || state.jobs.length)"
-          :key="job.id"
-          :job="job"
+          v-for="item in state.items.slice(0, limit || state.items.length)"
+          :key="item.id"
+          :item="item"
         />
       </div>
     </div>
@@ -54,7 +53,7 @@ onMounted(async () => {
 
   <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
     <RouterLink
-      to="/jobs"
+      to="/items"
       class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
       >View All Jobs</RouterLink
     >
